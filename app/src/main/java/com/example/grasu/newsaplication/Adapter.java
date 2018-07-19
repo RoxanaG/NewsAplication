@@ -26,7 +26,9 @@ public class Adapter extends ArrayAdapter<News> {
         News currentNews = getItem(position);
 
         TextView title = (TextView) listItemView.findViewById(R.id.title);
-        TextView section = (TextView) listItemView.findViewById(R.id.selection);
+        title.setText(currentNews.getTitle());
+        TextView section = (TextView) listItemView.findViewById(R.id.section);
+        section.setText(currentNews.getSection());
         Date dateObject = new Date(currentNews.getPublicationDate());
         TextView publicationDate = listItemView.findViewById(R.id.publicationDate);
         String formattedDate = formatDate(dateObject);
@@ -35,12 +37,7 @@ public class Adapter extends ArrayAdapter<News> {
         String formattedTime = formatTime(dateObject);
         publicationTime.setText(formattedTime);
 
-        title.setText(currentNews.getTitle());
-        section.setText(currentNews.getSection());
-
-
         return listItemView;
-
 
         }
     private String formatDate(Date dateObject){
