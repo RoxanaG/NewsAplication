@@ -4,9 +4,9 @@ public class News {
     private String title;
     private String section;
     private String url;
-    private long publicationDate;
+    private String publicationDate;
 
-    public News(String title, String section, String url, long publicationDate) {
+    public News(String title, String section, String url, String publicationDate) {
         this.title = title;
         this.section = section;
         this.url = url;
@@ -24,5 +24,8 @@ public class News {
     public String getUrl() {
         return url;
     }
-    public long getPublicationDate() {return publicationDate;}
+
+    public String getPublicationDate() {
+        return publicationDate;
+    }
 }

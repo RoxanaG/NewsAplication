@@ -25,14 +25,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private Adapter adapter;
     Button update;
     private TextView emptyView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView newsListView = findViewById(R.id.list);
 
-        TextView emptyText = (TextView)findViewById(android.R.id.empty);
-        newsListView.setEmptyView(emptyText);
+        ListView newsListView = findViewById(R.id.list);
+        TextView emptyView = findViewById(R.id.empty);
+        newsListView.setEmptyView(emptyView);
 
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 startActivity(websiteIntent);
             }
         });
-
         adapter = new Adapter(this, new ArrayList<News>());
         newsListView.setAdapter(adapter);
         newsUpdate();
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 newsUpdate();
             }
         });
-
     }
 
     @Override
@@ -76,14 +75,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private void newsUpdate() {
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             LoaderManager loaderManager = getLoaderManager();
-            if(loaderManager.getLoader(LOADER_ID) != null){
+            if (loaderManager.getLoader(LOADER_ID) != null) {
                 loaderManager.restartLoader(LOADER_ID, null, this);
-            }
-            else {
+            } else {
                 loaderManager.initLoader(LOADER_ID, null, this);
             }
         }

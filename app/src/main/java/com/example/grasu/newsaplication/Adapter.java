@@ -23,30 +23,18 @@ public class Adapter extends ArrayAdapter<News> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.news_item, parent, false);
         }
-        News currentNews = getItem(position);
 
+        News currentNews = getItem(position);
         TextView title = (TextView) listItemView.findViewById(R.id.title);
         title.setText(currentNews.getTitle());
         TextView section = (TextView) listItemView.findViewById(R.id.section);
         section.setText(currentNews.getSection());
-        Date dateObject = new Date(currentNews.getPublicationDate());
         TextView publicationDate = listItemView.findViewById(R.id.publicationDate);
-        String formattedDate = formatDate(dateObject);
-        publicationDate.setText(formattedDate);
-        TextView publicationTime = listItemView.findViewById(R.id.publicationTime);
-        String formattedTime = formatTime(dateObject);
-        publicationTime.setText(formattedTime);
-
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+        String date = sdf.format(new Date());
+        publicationDate.setText(date);
         return listItemView;
-
-        }
-    private String formatDate(Date dateObject){
-        SimpleDateFormat dateFormat=new SimpleDateFormat("LLL dd, yyyy");
-        return dateFormat.format(dateObject);}
-        private String formatTime(Date dateObject){
-        SimpleDateFormat timeFormat=new SimpleDateFormat("h:mm a");
-        return timeFormat.format(dateObject);
-        }
     }
+}
 
 

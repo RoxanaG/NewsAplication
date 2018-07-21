@@ -1,9 +1,6 @@
 package com.example.grasu.newsaplication;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
 import android.text.TextUtils;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,11 +14,11 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QueryUtils {
+
     private QueryUtils() {
     }
 
@@ -31,7 +28,6 @@ public class QueryUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-
         }
         List<News> news = extractFeatureFromJson(jsonResponse);
         return news;
@@ -42,7 +38,6 @@ public class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e) {
-
         }
         return url;
     }
@@ -60,12 +55,10 @@ public class QueryUtils {
             urlConnection.setConnectTimeout(10000);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
-
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
-
             }
         } catch (IOException e) {
         } finally {
@@ -101,16 +94,14 @@ public class QueryUtils {
             JSONArray resultsArray = response.getJSONArray("results");
             for (int i = 0; i < resultsArray.length(); i++) {
                 JSONObject currentNews = resultsArray.getJSONObject(i);
-
                 String title = currentNews.getString("webTitle");
                 String section = currentNews.getString("sectionName");
                 String url = currentNews.getString("webUrl");
-                long publicationDate = currentNews.getLong("webPublicationDate");
-                News newNews = new News(title,section, url, publicationDate);
+                String publicationDate = currentNews.getString("webPublicationDate");
+                News newNews = new News(title, section, url, publicationDate);
                 news.add(newNews);
             }
         } catch (JSONException e) {
-
         }
         return news;
     }
