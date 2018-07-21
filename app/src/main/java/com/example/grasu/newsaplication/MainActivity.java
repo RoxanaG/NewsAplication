@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?api-key=b365c9d6-60aa-47ee-81ce-37da21166e41";
     private Adapter adapter;
     Button update;
-    private TextView emptyView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

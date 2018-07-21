@@ -25,9 +25,9 @@ public class Adapter extends ArrayAdapter<News> {
         }
 
         News currentNews = getItem(position);
-        TextView title = (TextView) listItemView.findViewById(R.id.title);
+        TextView title = listItemView.findViewById(R.id.title);
         title.setText(currentNews.getTitle());
-        TextView section = (TextView) listItemView.findViewById(R.id.section);
+        TextView section = listItemView.findViewById(R.id.section);
         section.setText(currentNews.getSection());
         TextView publicationDate = listItemView.findViewById(R.id.publicationDate);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
