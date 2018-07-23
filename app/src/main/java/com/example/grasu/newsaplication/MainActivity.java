@@ -21,10 +21,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
 
     private static final int LOADER_ID = 1;
-    private final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?api-key=b365c9d6-60aa-47ee-81ce-37da21166e41";
+    private final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/search?q=debates&show-tags=contributor&api-key=b365c9d6-60aa-47ee-81ce-37da21166e41";
     private Adapter adapter;
     Button update;
-
+    private TextView emptyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,9 +64,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoadFinished(Loader<List<News>> loader, List<News> news) {
         adapter.clear();
-        if (news != null && !news.isEmpty())
+        if (news != null && !news.isEmpty()){
             adapter.addAll(news);
-    }
+    }else {
+           emptyTextView.setText(R.string.no_news);
+        }}
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {

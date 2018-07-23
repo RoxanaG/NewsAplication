@@ -19,6 +19,23 @@ import java.util.List;
 
 public class QueryUtils {
 
+    private static final String response = "response";
+
+    private static final String results = "results";
+
+    private static final String section = "sectionName";
+
+    private static final String publicationDate = "webPublicationDate";
+
+    private static final String title = "webTitle";
+
+    private static final String url = "webUrl";
+
+    private static final String tags = "tags";
+
+    private static final String author = "webTitle";
+
+
     private QueryUtils() {
     }
 
@@ -98,7 +115,16 @@ public class QueryUtils {
                 String section = currentNews.getString("sectionName");
                 String url = currentNews.getString("webUrl");
                 String publicationDate = currentNews.getString("webPublicationDate");
-                News newNews = new News(title, section, url, publicationDate);
+                JSONArray currentNewsAuthor = currentNews.getJSONArray(tags);
+                String author = "N/A";
+                int tagsLenght = currentNewsAuthor.length();
+                if (tagsLenght == 1) {
+                    // Create a JSONObject for author
+                    JSONObject newsAuthor = currentNewsAuthor.getJSONObject(0);
+                    String author1 = newsAuthor.getString("webTitle");
+                    author = "by: " + author1;
+                }
+                News newNews = new News(title, section, url, publicationDate,author);
                 news.add(newNews);
             }
         } catch (JSONException e) {

@@ -2,5 +2,6 @@
     <string name="app_name">News Aplication</string>
     <string name="Update">UPDATE</string>
     <string name="no_data">Please Turn Your Internet On</string>
+    <string name="no_news">There are no stories for the moment.\Please come back later</string>
 
 </resources>
