@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private final String GUARDIAN_REQUEST_URL = "http://content.guardianapis.com/search?q=debates&show-tags=contributor&api-key=b365c9d6-60aa-47ee-81ce-37da21166e41";
     private Adapter adapter;
     Button update;
-    private TextView emptyTextView;
+    private TextView emptyView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (news != null && !news.isEmpty()){
             adapter.addAll(news);
     }else {
-           emptyTextView.setText(R.string.no_news);
+           emptyView.setText(R.string.no_news);
         }}
 
     @Override
