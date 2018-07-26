@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
         ListView newsListView = findViewById(R.id.list);
-        TextView emptyView = findViewById(R.id.empty);
+         emptyView = findViewById(R.id.empty);
         newsListView.setEmptyView(emptyView);
 
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         );
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-
         uriBuilder.appendQueryParameter("orderby", orderBy);
         uriBuilder.appendQueryParameter("section", sectionName);
         return new LoaderNews(this, uriBuilder.toString());
