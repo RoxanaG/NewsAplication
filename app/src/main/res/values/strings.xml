@@ -7,11 +7,11 @@
     <string name="settings_title">News Settings</string>
     <string name="settings_type_label">Type</string>
     <string name="settings_type_key" translatable="false">type</string>
-    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_article_label</string>
-    <string name="settings_order_by_article_label">Article</string>
-    <string name="settings_order_by_article_value" translatable="false">article</string>
-    <string name="settings_order_by_liveblog_label">Liveblog</string>
-    <string name="settings_order_by_liveblog_value" translatable="false">liveblog</string>
+    <string name="settings_type_default" translatable="false">@string/settings_type_article_label</string>
+    <string name="settings_type_article_label">Article</string>
+    <string name="settings_type_article_value" translatable="false">article</string>
+    <string name="settings_type_liveblog_label">Liveblog</string>
+    <string name="settings_type_liveblog_value" translatable="false">liveblog</string>
     <string name="settings_section_label">Section</string>
     <string name="settings_section_default" translatable="false"></string>
     <string name="settings_section_key" translatable="false">section</string>
