@@ -66,13 +66,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String sectionName = sharedPrefs.getString(
                 getString(R.string.settings_section_key),
                 getString(R.string.settings_section_default));
-        String orderBy  = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
+        String type  = sharedPrefs.getString(
+                getString(R.string.settings_type_key),
+                getString(R.string.settings_type_default)
         );
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("orderby", orderBy);
+        uriBuilder.appendQueryParameter("type", type);
         uriBuilder.appendQueryParameter("section", sectionName);
         return new LoaderNews(this, uriBuilder.toString());
     }
