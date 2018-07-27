@@ -5,13 +5,13 @@
     <string name="no_news">There are no stories for the moment.\Please come back later</string>
     <string name="settings_menu_item">Settings</string>
     <string name="settings_title">News Settings</string>
-    <string name="settings_order_by_label">Order by</string>
-    <string name="settings_order_by_key" translatable="false">order_by</string>
-    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_newest_label</string>
-    <string name="settings_order_by_newest_label">Newest</string>
-    <string name="settings_order_by_newest_value" translatable="false">newest</string>
-    <string name="settings_order_by_oldest_label">Oldest</string>
-    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+    <string name="settings_type_label">Type</string>
+    <string name="settings_type_key" translatable="false">type</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_article_label</string>
+    <string name="settings_order_by_article_label">Article</string>
+    <string name="settings_order_by_article_value" translatable="false">article</string>
+    <string name="settings_order_by_liveblog_label">Liveblog</string>
+    <string name="settings_order_by_liveblog_value" translatable="false">liveblog</string>
     <string name="settings_section_label">Section</string>
     <string name="settings_section_default" translatable="false"></string>
     <string name="settings_section_key" translatable="false">section</string>
